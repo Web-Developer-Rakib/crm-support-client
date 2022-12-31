@@ -35,9 +35,13 @@ const Register = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          toast.success("Employee added successfully");
+          if (data.added) {
+            toast.success(data.added);
+          } else {
+            toast.warn(data.exist);
+          }
         })
-        .catch((error) => {
+        .catch(() => {
           toast.error("Something went wrong");
         });
     }
