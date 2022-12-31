@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const userType = "Employee";
+  const userType = "employee";
   const userDetails = {
     name,
     userName,
@@ -15,7 +16,16 @@ const Register = () => {
 
   const handleRegister = (event) => {
     event.preventDefault();
-    if (password === confirmPassword) {
+    if (
+      name === "" ||
+      userName === "" ||
+      password === "" ||
+      confirmPassword === ""
+    ) {
+      toast.warn("Please fill up all fields.");
+    } else if (password !== confirmPassword) {
+      toast.warn("Password did not matched");
+    } else {
       fetch("http://localhost:5000/post-user", {
         method: "POST",
         headers: {
@@ -25,13 +35,11 @@ const Register = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log("Success:", data);
+          toast.success("Employee added successfully");
         })
         .catch((error) => {
-          console.error("Error:", error);
+          toast.error("Something went wrong");
         });
-    } else {
-      console.log("Password did not matched");
     }
   };
 

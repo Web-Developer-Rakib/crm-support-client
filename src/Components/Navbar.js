@@ -1,14 +1,27 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import useUser from "../Hooks/useUser";
 
 const Navbar = () => {
+  const { user } = useUser();
   const navigate = useNavigate();
+  const logout = () => {
+    localStorage.clear();
+    window.location.reload(true);
+    toast.success("Logout successful.");
+  };
   const navLinks = (
     <>
-      <li>
-        <Link to="/">Login</Link>
-      </li>
-
+      {user ? (
+        <button className="btn btn-error" onClick={logout}>
+          Logout
+        </button>
+      ) : (
+        <li>
+          <Link to="/">Login</Link>
+        </li>
+      )}
       <li>
         <Link to="/dashboard/all-data">Dashboard</Link>
       </li>
