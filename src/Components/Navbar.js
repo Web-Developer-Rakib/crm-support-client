@@ -4,11 +4,12 @@ import { toast } from "react-toastify";
 import useUser from "../Hooks/useUser";
 
 const Navbar = () => {
-  const { user } = useUser();
   const navigate = useNavigate();
+  const { user } = useUser();
+
   const logout = () => {
     localStorage.clear();
-    window.location.reload(true);
+    navigate("/");
     toast.success("Logout successful.");
   };
   const navLinks = (
