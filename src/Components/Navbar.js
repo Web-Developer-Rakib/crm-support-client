@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const navLinks = (
     <>
       <li>
@@ -48,7 +49,12 @@ const Navbar = () => {
       <div class="navbar-end">
         <div className=" w-[200px] hidden lg:flex justify-around"></div>
         <div class="dropdown">
-          <label for="my-drawer-2" tabindex="0" class="btn btn-ghost lg:hidden">
+          <label
+            for="my-drawer-2"
+            tabindex="0"
+            class="btn btn-ghost lg:hidden"
+            onClick={() => navigate("/dashboard/all-data")}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"

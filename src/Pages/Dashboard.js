@@ -5,19 +5,22 @@ const Dashboard = () => {
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content flex flex-col items-center">
         {/* <!-- Outlate here --> */}
         <Outlet></Outlet>
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 bg-base-100 text-base-content bg-zinc-300">
+        <ul className="menu p-4 w-80 text-base-content bg-zinc-300">
           {/* <!-- Sidebar content here --> */}
           <li>
             <Link to="/dashboard/all-data">All Data</Link>
           </li>
           <li>
-            <Link to="/dashboard/individual-data">Individual Data</Link>
+            <Link to="/dashboard/added-by-me">Added by me</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/add-customer-data">Add customer data</Link>
           </li>
           <li>
             <Link to="/dashboard/Add-employee">Add new employee</Link>

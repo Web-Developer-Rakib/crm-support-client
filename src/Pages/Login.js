@@ -1,24 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const loginDetails = { username, password };
+
+  const Login = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginDetails),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.Error || data.Invalid) {
+          console.log("Invalid login details");
+        } else {
+          localStorage.setItem("user", JSON.stringify(data));
+          console.log(data);
+        }
+      })
+      .catch(() => {
+        console.error("Something went wrong");
+      });
+  };
   return (
-    <div className="mt-10">
-      <form action="">
-        <h2 className="my-5 text-2xl">Login</h2>
-        <input
-          type="text"
-          placeholder="User ID"
-          className="input input-bordered w-full max-w-xs "
-        />{" "}
-        <br />
-        <input
-          type="password"
-          placeholder="Password"
-          className="input input-bordered w-full max-w-xs my-5"
-        />{" "}
-        <br />
-        <button className="btn btn-primary">Log in</button>
-      </form>
+    <div className="flex justify-center">
+      <div className="mt-10">
+        <form>
+          <h2 className="my-5 text-2xl text-center">Login</h2>
+          <input
+            type="text"
+            placeholder="Username"
+            className="input input-bordered w-full max-w-xs"
+            onChange={(e) => setUsername(e.target.value)}
+          />{" "}
+          <br />
+          <input
+            type="password"
+            placeholder="Password"
+            className="input input-bordered w-full max-w-xs my-5"
+            onChange={(e) => setPassword(e.target.value)}
+          />{" "}
+          <br />
+          <div className="flex justify-center">
+            <button className="btn btn-primary" onClick={Login}>
+              Log in
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
