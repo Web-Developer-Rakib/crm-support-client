@@ -8,8 +8,9 @@ import useSingleCustomer from "../../Hooks/useSingleCustomer";
 
 const AllData = () => {
   const { customers } = useAllCustomers();
-  const { dataPerPage, dataLength, values, getValues } = usePagination();
+  const { dataPerPage, values, getValues } = usePagination();
   const { singleCustomer, handleView } = useSingleCustomer();
+  const dataLength = customers.length;
   return (
     <div>
       <h1 className="text-left mb-5 ml-5 text-2xl">All data</h1>

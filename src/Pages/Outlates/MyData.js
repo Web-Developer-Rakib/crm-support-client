@@ -10,8 +10,12 @@ import useUser from "../../Hooks/useUser";
 const MyData = () => {
   const { user } = useUser();
   const { customers } = useAllCustomers();
-  const { dataPerPage, dataLength, values, getValues } = usePagination();
+  const { dataPerPage, values, getValues } = usePagination();
   const { singleCustomer, handleView } = useSingleCustomer();
+  const myData = customers.filter(
+    (customer) => customer.inchargeUsername === user.userName
+  );
+  const dataLength = myData.length;
   return (
     <div>
       <h1 className="text-left mb-5 ml-5 text-2xl">Added by {user.name}</h1>
@@ -31,17 +35,11 @@ const MyData = () => {
             </tr>
           </thead>
           <tbody>
-            {customers
+            {myData
               .slice(values.startValue, values.endValue)
-              .map(
-                (customer) =>
-                  customer.inchargeUsername === user.userName && (
-                    <DataRow
-                      customer={customer}
-                      handleView={handleView}
-                    ></DataRow>
-                  )
-              )}
+              .map((customer) => (
+                <DataRow customer={customer} handleView={handleView}></DataRow>
+              ))}
           </tbody>
         </table>
       </div>
