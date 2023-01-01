@@ -15,7 +15,7 @@ const Navbar = () => {
   const navLinks = (
     <>
       {user ? (
-        <button className="btn btn-error" onClick={logout}>
+        <button className="btn btn-secondary" onClick={logout}>
           Logout
         </button>
       ) : (

@@ -82,7 +82,7 @@ const AddCustomerData = () => {
             type="radio"
             name="radio-6"
             className="radio radio-success"
-            onClick={() => setStatus("open")}
+            onClick={() => setStatus("Open")}
           />
         </span>
         <span className="mr-4">
@@ -91,7 +91,7 @@ const AddCustomerData = () => {
             type="radio"
             name="radio-6"
             className="radio radio-error"
-            onClick={() => setStatus("close")}
+            onClick={() => setStatus("Close")}
           />
         </span>
         <span>
@@ -100,7 +100,7 @@ const AddCustomerData = () => {
             type="radio"
             name="radio-6"
             className="radio radio-warning"
-            onClick={() => setStatus("pending")}
+            onClick={() => setStatus("Pending")}
           />
         </span>
         <h4 className="text-lg mt-3">Lead date</h4>
