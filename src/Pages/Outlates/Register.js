@@ -14,8 +14,8 @@ const Register = () => {
     userType,
   };
 
-  const handleRegister = (event) => {
-    event.preventDefault();
+  const handleRegister = (e) => {
+    e.preventDefault();
     if (
       name === "" ||
       userName === "" ||
@@ -60,7 +60,7 @@ const Register = () => {
         <br />
         <input
           type="text"
-          placeholder="User ID"
+          placeholder="Username"
           className="input input-bordered w-full max-w-xs my-5"
           onChange={(e) => setUserName(e.target.value)}
         />{" "}

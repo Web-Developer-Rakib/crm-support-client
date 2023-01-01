@@ -24,7 +24,7 @@ const Login = () => {
         } else {
           localStorage.setItem("user", JSON.stringify(data));
           navigate("/dashboard/all-data");
-          toast.success("Logout successful.");
+          toast.success("Login successful.");
         }
       })
       .catch(() => {
