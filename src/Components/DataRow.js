@@ -33,7 +33,7 @@ const DataRow = ({ customer, handleView }) => {
         </td>
         <td>{leadDate}</td>
         <td>{personIncharge.slice(0, 6)}...</td>
-        <td>{comment.slice(0, 20)}</td>
+        <td>{comment.slice(0, 10)}...</td>
         <td>
           {/* The button to open modal */}
           <label

@@ -1,13 +1,16 @@
 import React from "react";
 import DataRow from "../../Components/DataRow";
 import Modal from "../../Components/Modal";
+import Pagination from "../../Components/Pagination";
 import useAllCustomers from "../../Hooks/useAllCustomers";
+import usePagination from "../../Hooks/usePagination";
 import useSingleCustomer from "../../Hooks/useSingleCustomer";
 import useUser from "../../Hooks/useUser";
 
 const MyData = () => {
   const { user } = useUser();
   const { customers } = useAllCustomers();
+  const { dataPerPage, dataLength, values, getValues } = usePagination();
   const { singleCustomer, handleView } = useSingleCustomer();
   return (
     <div>
@@ -28,18 +31,25 @@ const MyData = () => {
             </tr>
           </thead>
           <tbody>
-            {customers.map(
-              (customer) =>
-                customer.inchargeUsername === user.userName && (
-                  <DataRow
-                    customer={customer}
-                    handleView={handleView}
-                  ></DataRow>
-                )
-            )}
+            {customers
+              .slice(values.startValue, values.endValue)
+              .map(
+                (customer) =>
+                  customer.inchargeUsername === user.userName && (
+                    <DataRow
+                      customer={customer}
+                      handleView={handleView}
+                    ></DataRow>
+                  )
+              )}
           </tbody>
         </table>
       </div>
+      <Pagination
+        dataPerPage={dataPerPage}
+        getValues={getValues}
+        dataLength={dataLength}
+      ></Pagination>
       <Modal singleCustomer={singleCustomer}></Modal>
     </div>
   );
