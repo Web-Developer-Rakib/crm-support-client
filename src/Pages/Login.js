@@ -23,7 +23,7 @@ const Login = () => {
           toast.warn("Invalid login details");
         } else {
           localStorage.setItem("user", JSON.stringify(data));
-          navigate("/dashboard/all-data");
+          navigate("/dashboard/added-by-me");
           toast.success("Login successful.");
         }
       })

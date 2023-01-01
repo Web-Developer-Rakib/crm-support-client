@@ -11,7 +11,7 @@ const MyData = () => {
   const { singleCustomer, handleView } = useSingleCustomer();
   return (
     <div>
-      <h1 className="text-left mb-5 ml-5 text-2xl">All data</h1>
+      <h1 className="text-left mb-5 ml-5 text-2xl">Added by {user.name}</h1>
       <div className="overflow-x-auto">
         <table className="table w-full">
           {/* <!-- head --> */}
