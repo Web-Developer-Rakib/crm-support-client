@@ -1,9 +1,12 @@
 import React from "react";
-import AllDataRow from "../../Components/AllDataRow";
+import DataRow from "../../Components/DataRow";
+import Modal from "../../Components/Modal";
 import useAllCustomers from "../../Hooks/useAllCustomers";
+import useSingleCustomer from "../../Hooks/useSingleCustomer";
 
 const AllData = () => {
   const { customers } = useAllCustomers();
+  const { singleCustomer, handleView } = useSingleCustomer();
   return (
     <div>
       <h1 className="text-left mb-5 ml-5 text-2xl">All data</h1>
@@ -24,11 +27,12 @@ const AllData = () => {
           </thead>
           <tbody>
             {customers.map((customer) => (
-              <AllDataRow customer={customer}></AllDataRow>
+              <DataRow customer={customer} handleView={handleView}></DataRow>
             ))}
           </tbody>
         </table>
       </div>
+      <Modal singleCustomer={singleCustomer}></Modal>
     </div>
   );
 };

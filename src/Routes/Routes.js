@@ -5,7 +5,7 @@ import Dashboard from "../Pages/Dashboard";
 import Login from "../Pages/Login";
 import AddCustomerData from "../Pages/Outlates/AddCustomerData";
 import AllData from "../Pages/Outlates/AllData";
-import IndividualData from "../Pages/Outlates/MyData";
+import MyData from "../Pages/Outlates/MyData";
 import Register from "../Pages/Outlates/Register";
 
 const routes = createBrowserRouter([
@@ -31,7 +31,7 @@ const routes = createBrowserRouter([
           },
           {
             path: "/dashboard/added-by-me",
-            element: <IndividualData></IndividualData>,
+            element: <MyData></MyData>,
           },
           {
             path: "/dashboard/add-customer-data",
