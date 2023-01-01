@@ -12,11 +12,30 @@ const Modal = ({ singleCustomer }) => {
           >
             ✕
           </label>
-          <h3 className="text-lg font-bold">{singleCustomer.customerName}</h3>
-          <p className="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
-          </p>
+          <div>
+            <span className="text-lg font-bold">Name: </span>
+            <span>{singleCustomer.customerName}</span>
+          </div>
+          <div>
+            <span className="text-lg font-bold">Contact Number: </span>
+            <span>{singleCustomer.contactNumber}</span>
+          </div>
+          <div>
+            <span className="text-lg font-bold">Email: </span>
+            <span>{singleCustomer.email}</span>
+          </div>
+          <div>
+            <span className="text-lg font-bold">Status: </span>
+            <span>{singleCustomer.status}</span>
+          </div>
+          <div>
+            <span className="text-lg font-bold">Person incharge: </span>
+            <span>{singleCustomer.personIncharge}</span>
+          </div>
+          <div>
+            <span className="text-lg font-bold">Comment: </span>
+            <span>{singleCustomer.comment}</span>
+          </div>
         </div>
       </div>
     </div>

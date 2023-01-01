@@ -38,7 +38,7 @@ const DataRow = ({ customer, handleView }) => {
           {/* The button to open modal */}
           <label
             htmlFor="my-modal-3"
-            className="btn"
+            className="btn btn-primary"
             onClick={() => handleView(_id)}
           >
             view
