@@ -15,7 +15,7 @@ const DataRow = ({ customer, handleView }) => {
   return (
     <>
       <tr key={_id}>
-        <th>{customerName.slice(0, 6)}...</th>
+        <th>{customerName.slice(0, 4)}...</th>
         <td>{contactNumber.slice(0, 5)}...</td>
         <td>{email.slice(0, 4)}..@..com</td>
         <td>
@@ -38,10 +38,24 @@ const DataRow = ({ customer, handleView }) => {
           {/* The button to open modal */}
           <label
             htmlFor="my-modal-3"
-            className="btn btn-primary"
+            className="btn btn-primary btn-sm"
             onClick={() => handleView(_id)}
           >
-            view
+            v
+          </label>
+          <label
+            htmlFor="my-modal-3"
+            className="btn btn-accent  btn-sm"
+            onClick={() => handleView(_id)}
+          >
+            u
+          </label>
+          <label
+            htmlFor="my-modal-3"
+            className="btn btn-secondary btn-sm"
+            onClick={() => handleView(_id)}
+          >
+            d
           </label>
         </td>
       </tr>

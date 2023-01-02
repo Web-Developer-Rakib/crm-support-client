@@ -89,71 +89,77 @@ const AddCustomerData = () => {
   };
   return (
     <div className="mt-10">
+      <h2 className="my-5 text-2xl text-center">ADD CUSTOMER DATA</h2>
       <form>
-        <h2 className="my-5 text-2xl text-center">ADD CUSTOMER DATA</h2>
-        <h4 className="text-lg">Customer name</h4>
-        <input
-          type="text"
-          placeholder="Name"
-          className="input input-bordered w-full max-w-xs mb-3"
-          onChange={(e) => setCustomerName(e.target.value)}
-        />
-        <h4 className="text-lg">Contact number</h4>
-        <input
-          type="number"
-          placeholder="Contact number"
-          className="input input-bordered w-full max-w-xs mb-3"
-          onChange={(e) => setContactNumber(e.target.value)}
-        />
-        <h4 className="text-lg">Email</h4>
-        <input
-          type="email"
-          placeholder="Email"
-          className="input input-bordered w-full max-w-xs mb-3"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <h4 className="text-lg">Status</h4>
-        <span className="mr-4">
-          Open{" "}
-          <input
-            type="radio"
-            name="radio-6"
-            className="radio radio-success"
-            onClick={() => setStatus("Open")}
-          />
-        </span>
-        <span className="mr-4">
-          Close{" "}
-          <input
-            type="radio"
-            name="radio-6"
-            className="radio radio-error"
-            onClick={() => setStatus("Close")}
-          />
-        </span>
-        <span>
-          Pending{" "}
-          <input
-            type="radio"
-            name="radio-6"
-            className="radio radio-warning"
-            onClick={() => setStatus("Pending")}
-          />
-        </span>
-        <h4 className="text-lg mt-3">Lead date</h4>
-        <input
-          type="date"
-          className="input input-bordered w-full max-w-xs mb-3"
-          onChange={(e) => setDate(e.target.value)}
-        />
+        <div className="flex flex-wrap lg:w-[500px] justify-between">
+          <div>
+            <h4 className="text-lg font-semibold">Customer name</h4>
+            <input
+              type="text"
+              placeholder="Name"
+              className="input input-bordered w-full max-w-xs mb-3"
+              onChange={(e) => setCustomerName(e.target.value)}
+            />
+            <h4 className="text-lg font-semibold">Contact number</h4>
+            <input
+              type="number"
+              placeholder="Contact number"
+              className="input input-bordered w-full max-w-xs mb-3"
+              onChange={(e) => setContactNumber(e.target.value)}
+            />
+            <h4 className="text-lg font-semibold">Email</h4>
+            <input
+              type="email"
+              placeholder="Email"
+              className="input input-bordered w-full max-w-xs mb-3"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold">Status</h4>
+            <span className="mr-4">
+              Open{" "}
+              <input
+                type="radio"
+                name="radio-6"
+                className="radio radio-success"
+                onClick={() => setStatus("Open")}
+              />
+            </span>
+            <span className="mr-4">
+              Close{" "}
+              <input
+                type="radio"
+                name="radio-6"
+                className="radio radio-error"
+                onClick={() => setStatus("Close")}
+              />
+            </span>
+            <span>
+              Pending{" "}
+              <input
+                type="radio"
+                name="radio-6"
+                className="radio radio-warning"
+                onClick={() => setStatus("Pending")}
+              />
+            </span>
+            <h4 className="text-lg mt-3 font-semibold">Lead date</h4>
+            <input
+              type="date"
+              className="input input-bordered w-full max-w-xs mb-3"
+              onChange={(e) => setDate(e.target.value)}
+            />
 
-        <h4 className="text-lg">Comment</h4>
-        <textarea
-          className="textarea textarea-bordered lg:w-80 mb-5"
-          placeholder="Type comment here"
-          onChange={(e) => setComment(e.target.value)}
-        ></textarea>
-        <br />
+            <h4 className="text-lg font-semibold">Comment</h4>
+            <textarea
+              className="textarea textarea-bordered mb-5"
+              placeholder="Type comment here"
+              onChange={(e) => setComment(e.target.value)}
+            ></textarea>
+            <br />
+          </div>
+        </div>
         <div className="flex justify-center">
           <button
             className="btn btn-primary mb-5"
