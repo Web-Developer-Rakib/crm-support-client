@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import RequireAdmin from "../Hooks/RequireAdmin";
 import RequireAuth from "../Hooks/RequireAuth";
 import Main from "../Layouts/Main";
 import Dashboard from "../Pages/Dashboard";
@@ -27,7 +28,11 @@ const routes = createBrowserRouter([
         children: [
           {
             path: "/dashboard/all-data",
-            element: <AllData></AllData>,
+            element: (
+              <RequireAdmin>
+                <AllData></AllData>
+              </RequireAdmin>
+            ),
           },
           {
             path: "/dashboard/added-by-me",
@@ -39,7 +44,11 @@ const routes = createBrowserRouter([
           },
           {
             path: "/dashboard/Add-employee",
-            element: <Register></Register>,
+            element: (
+              <RequireAdmin>
+                <Register></Register>
+              </RequireAdmin>
+            ),
           },
         ],
       },

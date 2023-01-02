@@ -6,6 +6,7 @@ const Register = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
   const userType = "employee";
   const userDetails = {
     name,
@@ -36,6 +37,10 @@ const Register = () => {
         .then((response) => response.json())
         .then((data) => {
           if (data.added) {
+            setName("");
+            setUserName("");
+            setPassword("");
+            setConfirmPassword("");
             toast.success(data.added);
           } else {
             toast.warn(data.exist);

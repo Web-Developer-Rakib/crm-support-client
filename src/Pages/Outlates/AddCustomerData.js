@@ -75,6 +75,11 @@ const AddCustomerData = () => {
       })
         .then((response) => response.json())
         .then(() => {
+          setCustomerName("");
+          setComment("");
+          setStatus("");
+          setContactNumber("");
+          setEmail("");
           toast.success("Customer added successfully.");
         })
         .catch(() => {
