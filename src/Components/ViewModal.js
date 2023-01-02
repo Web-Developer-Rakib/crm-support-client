@@ -1,13 +1,13 @@
 import React from "react";
 
-const Modal = ({ singleCustomer }) => {
+const ViewModal = ({ singleCustomer }) => {
   return (
     <div>
-      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <input type="checkbox" id="view-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative">
           <label
-            htmlFor="my-modal-3"
+            htmlFor="view-modal"
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
@@ -42,4 +42,4 @@ const Modal = ({ singleCustomer }) => {
   );
 };
 
-export default Modal;
+export default ViewModal;

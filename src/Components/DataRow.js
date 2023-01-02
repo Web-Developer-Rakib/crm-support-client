@@ -1,4 +1,5 @@
 import React from "react";
+import { FaEye, FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 
 const DataRow = ({ customer, handleView }) => {
   const {
@@ -26,36 +27,35 @@ const DataRow = ({ customer, handleView }) => {
                 : status === "Close"
                 ? "bg-error"
                 : "bg-warning"
-            } p-3 rounded-lg text-center`}
+            } p-2 rounded-lg text-center`}
           >
             {status}
           </p>
         </td>
         <td>{leadDate}</td>
-        <td>{personIncharge.slice(0, 6)}...</td>
+        <td>{personIncharge.slice(0, 7)}...</td>
         <td>{comment.slice(0, 10)}...</td>
         <td>
-          {/* The button to open modal */}
           <label
-            htmlFor="my-modal-3"
+            htmlFor="view-modal"
             className="btn btn-primary btn-sm"
             onClick={() => handleView(_id)}
           >
-            v
+            <FaEye></FaEye>
           </label>
           <label
-            htmlFor="my-modal-3"
+            htmlFor="update-modal"
             className="btn btn-accent  btn-sm"
             onClick={() => handleView(_id)}
           >
-            u
+            <FaPencilAlt></FaPencilAlt>
           </label>
           <label
-            htmlFor="my-modal-3"
+            htmlFor="delete-modal"
             className="btn btn-secondary btn-sm"
             onClick={() => handleView(_id)}
           >
-            d
+            <FaTrashAlt></FaTrashAlt>
           </label>
         </td>
       </tr>

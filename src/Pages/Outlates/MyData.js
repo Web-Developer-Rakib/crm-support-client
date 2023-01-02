@@ -1,7 +1,9 @@
 import React from "react";
 import DataRow from "../../Components/DataRow";
-import Modal from "../../Components/Modal";
+import DeleteModal from "../../Components/DeleteModal";
 import Pagination from "../../Components/Pagination";
+import UpdateModal from "../../Components/UpdateModal";
+import Modal from "../../Components/ViewModal";
 import useAllCustomers from "../../Hooks/useAllCustomers";
 import usePagination from "../../Hooks/usePagination";
 import useSingleCustomer from "../../Hooks/useSingleCustomer";
@@ -31,7 +33,7 @@ const MyData = () => {
               <th>Lead date</th>
               <th>Person inCharge</th>
               <th>Comment</th>
-              <th>Action</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -49,6 +51,8 @@ const MyData = () => {
         dataLength={dataLength}
       ></Pagination>
       <Modal singleCustomer={singleCustomer}></Modal>
+      <UpdateModal></UpdateModal>
+      <DeleteModal></DeleteModal>
     </div>
   );
 };
