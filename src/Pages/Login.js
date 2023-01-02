@@ -10,7 +10,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/login", {
+    fetch(`${process.env.REACT_APP_Server_Link}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,10 +32,10 @@ const Login = () => {
       });
   };
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center h-screen">
       <div className="mt-10">
         <form>
-          <h2 className="my-5 text-2xl text-center">Login</h2>
+          <h2 className="my-5 text-2xl text-center">LOGIN</h2>
           <input
             type="text"
             placeholder="Username"

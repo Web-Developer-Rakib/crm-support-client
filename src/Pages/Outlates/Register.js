@@ -26,7 +26,7 @@ const Register = () => {
     } else if (password !== confirmPassword) {
       toast.warn("Password did not matched");
     } else {
-      fetch("http://localhost:5000/post-user", {
+      fetch(`${process.env.REACT_APP_Server_Link}/post-user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const Register = () => {
   return (
     <div className="mt-10">
       <form action="">
-        <h2 className="my-5 text-2xl">Register new user</h2>
+        <h2 className="my-5 text-2xl text-center">REGISTER NEW EMPLOYEE</h2>
         <input
           type="text"
           placeholder="Name"
@@ -79,9 +79,11 @@ const Register = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />{" "}
         <br />
-        <button className="btn btn-primary" onClick={handleRegister}>
-          Register
-        </button>
+        <div className="flex justify-center">
+          <button className="btn btn-primary" onClick={handleRegister}>
+            Register
+          </button>
+        </div>
       </form>
     </div>
   );

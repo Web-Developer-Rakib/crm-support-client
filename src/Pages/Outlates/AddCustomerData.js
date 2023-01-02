@@ -8,10 +8,42 @@ const AddCustomerData = () => {
   const [contactNumber, setContactNumber] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
-  const [leadDate, setLeadDate] = useState("");
+  const [date, setDate] = useState("");
   const [comment, setComment] = useState("");
   const personIncharge = user.name;
   const inchargeUsername = user.userName;
+  const dateSplited = date.split("-");
+
+  const year = dateSplited[0];
+  let month = dateSplited[1];
+  if (month === "01") {
+    month = "Jan";
+  } else if (month === "02") {
+    month = "Feb";
+  } else if (month === "03") {
+    month = "Mar";
+  } else if (month === "04") {
+    month = "Apr";
+  } else if (month === "05") {
+    month = "May";
+  } else if (month === "06") {
+    month = "Jun";
+  } else if (month === "07") {
+    month = "Jul";
+  } else if (month === "08") {
+    month = "Aug";
+  } else if (month === "09") {
+    month = "Sep";
+  } else if (month === "10") {
+    month = "Oct";
+  } else if (month === "11") {
+    month = "Nov";
+  } else {
+    month = "Dec";
+  }
+  const day = dateSplited[2];
+  const leadDate = day + " " + month + " " + year;
+
   const customerDetails = {
     customerName,
     contactNumber,
@@ -34,7 +66,7 @@ const AddCustomerData = () => {
     ) {
       toast.warn("Please fill up all field.");
     } else {
-      fetch("http://localhost:5000/post-customer-details", {
+      fetch(`${process.env.REACT_APP_Server_Link}/post-customer-details`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +85,7 @@ const AddCustomerData = () => {
   return (
     <div className="mt-10">
       <form>
-        <h2 className="my-5 text-2xl">Add customer data</h2>
+        <h2 className="my-5 text-2xl text-center">ADD CUSTOMER DATA</h2>
         <h4 className="text-lg">Customer name</h4>
         <input
           type="text"
@@ -106,9 +138,8 @@ const AddCustomerData = () => {
         <h4 className="text-lg mt-3">Lead date</h4>
         <input
           type="date"
-          pattern="dd/MM/yyyy"
           className="input input-bordered w-full max-w-xs mb-3"
-          onChange={(e) => setLeadDate(e.target.value)}
+          onChange={(e) => setDate(e.target.value)}
         />
 
         <h4 className="text-lg">Comment</h4>
@@ -118,12 +149,14 @@ const AddCustomerData = () => {
           onChange={(e) => setComment(e.target.value)}
         ></textarea>
         <br />
-        <button
-          className="btn btn-primary mb-5"
-          onClick={handleAddCustomerData}
-        >
-          Add data
-        </button>
+        <div className="flex justify-center">
+          <button
+            className="btn btn-primary mb-5"
+            onClick={handleAddCustomerData}
+          >
+            Add data
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -4,7 +4,7 @@ const useSingleCustomer = () => {
   const [singleCustomer, setSingleCustomer] = useState({});
   const handleView = (id) => {
     const cid = { id };
-    fetch("http://localhost:5000/customer", {
+    fetch(`${process.env.REACT_APP_Server_Link}/customer`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
