@@ -11,7 +11,7 @@ import useUser from "../../Hooks/useUser";
 
 const MyData = () => {
   const { user } = useUser();
-  const { customers } = useAllCustomers();
+  const { customers, setFilterStatus } = useAllCustomers();
   const { dataPerPage, values, getValues } = usePagination();
   const { singleCustomer, handleView } = useSingleCustomer();
   const myData = customers.filter(
@@ -20,7 +20,31 @@ const MyData = () => {
   const dataLength = myData.length;
   return (
     <div>
-      <h1 className="text-left mb-5 ml-5 text-2xl">Added by {user.name}</h1>
+      <div className="flex justify-between align-middle">
+        <h1 className="text-2xl">Added by {user.name}</h1>
+        <div className="dropdown dropdown-end">
+          <label tabIndex={0} className="btn m-1">
+            Filter
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li onClick={() => setFilterStatus("All")}>
+              <p>All</p>
+            </li>
+            <li>
+              <p onClick={() => setFilterStatus("Open")}>Open</p>
+            </li>
+            <li onClick={() => setFilterStatus("Close")}>
+              <p>Close</p>
+            </li>
+            <li onClick={() => setFilterStatus("Pending")}>
+              <p>Pending</p>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div className="overflow-x-auto">
         <table className="table w-full">
           {/* <!-- head --> */}
