@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import ProtectLogin from "../Hooks/ProtectLogin";
 import RequireAdmin from "../Hooks/RequireAdmin";
 import RequireAuth from "../Hooks/RequireAuth";
 import Main from "../Layouts/Main";
@@ -16,7 +17,11 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Login></Login>,
+        element: (
+          <ProtectLogin>
+            <Login></Login>
+          </ProtectLogin>
+        ),
       },
       {
         path: "/dashboard",
