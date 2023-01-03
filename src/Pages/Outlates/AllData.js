@@ -5,12 +5,14 @@ import Pagination from "../../Components/Pagination";
 import UpdateModal from "../../Components/UpdateModal";
 import ViewModal from "../../Components/ViewModal";
 import useAllCustomers from "../../Hooks/useAllCustomers";
+import useDeleteCustomer from "../../Hooks/useDeleteCustomer";
 import usePagination from "../../Hooks/usePagination";
 import useSingleCustomer from "../../Hooks/useSingleCustomer";
 
 const AllData = () => {
   const { customers, setFilterStatus } = useAllCustomers();
   const { dataPerPage, values, getValues } = usePagination();
+  const { onDeleteClicked, onDeleteConfirmed } = useDeleteCustomer();
   const { singleCustomer, handleView } = useSingleCustomer();
   const dataLength = customers.length;
   return (
@@ -59,7 +61,11 @@ const AllData = () => {
             {customers
               .slice(values.startValue, values.endValue)
               .map((customer) => (
-                <DataRow customer={customer} handleView={handleView}></DataRow>
+                <DataRow
+                  customer={customer}
+                  handleView={handleView}
+                  onDeleteClicked={onDeleteClicked}
+                ></DataRow>
               ))}
           </tbody>
         </table>
@@ -71,7 +77,7 @@ const AllData = () => {
       ></Pagination>
       <ViewModal singleCustomer={singleCustomer}></ViewModal>
       <UpdateModal></UpdateModal>
-      <DeleteModal></DeleteModal>
+      <DeleteModal onDeleteConfirmed={onDeleteConfirmed}></DeleteModal>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { FaEye, FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 
-const DataRow = ({ customer, handleView }) => {
+const DataRow = ({ customer, handleView, onDeleteClicked }) => {
   const {
     _id,
     customerName,
@@ -53,7 +53,7 @@ const DataRow = ({ customer, handleView }) => {
           <label
             htmlFor="delete-modal"
             className="btn btn-secondary btn-sm"
-            onClick={() => handleView(_id)}
+            onClick={() => onDeleteClicked(_id)}
           >
             <FaTrashAlt></FaTrashAlt>
           </label>

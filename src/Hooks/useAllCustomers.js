@@ -26,7 +26,7 @@ const useAllCustomers = () => {
       });
   }, [filterStatus]);
 
-  return { customers, setFilterStatus };
+  return { customers, setFilterStatus, setCustomers };
 };
 
 export default useAllCustomers;

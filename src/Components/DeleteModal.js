@@ -1,6 +1,6 @@
 import React from "react";
 
-const DeleteModal = () => {
+const DeleteModal = ({ onDeleteConfirmed }) => {
   return (
     <div>
       <input type="checkbox" id="delete-modal" class="modal-toggle" />
@@ -9,7 +9,13 @@ const DeleteModal = () => {
           <h3 class="font-bold text-xl text-center">Are you sure?</h3>
 
           <div class="modal-action flex justify-around">
-            <button className="btn btn-secondary">Delete</button>
+            <label
+              for="delete-modal"
+              class="btn btn-secondary"
+              onMouseUp={onDeleteConfirmed}
+            >
+              Delete
+            </label>
             <label for="delete-modal" class="btn">
               No
             </label>
