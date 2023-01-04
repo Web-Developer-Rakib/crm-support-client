@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Register = () => {
@@ -6,6 +7,7 @@ const Register = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
   const userType = "employee";
   const userDetails = {
@@ -41,6 +43,7 @@ const Register = () => {
             setUserName("");
             setPassword("");
             setConfirmPassword("");
+            navigate(0);
             toast.success(data.added);
           } else {
             toast.warn(data.exist);

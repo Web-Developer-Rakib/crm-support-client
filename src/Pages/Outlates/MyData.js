@@ -2,7 +2,6 @@ import React from "react";
 import DataRow from "../../Components/DataRow";
 import DeleteModal from "../../Components/DeleteModal";
 import Pagination from "../../Components/Pagination";
-import UpdateModal from "../../Components/UpdateModal";
 import Modal from "../../Components/ViewModal";
 import useAllCustomers from "../../Hooks/useAllCustomers";
 import useDeleteCustomer from "../../Hooks/useDeleteCustomer";
@@ -81,7 +80,6 @@ const MyData = () => {
         dataLength={dataLength}
       ></Pagination>
       <Modal singleCustomer={singleCustomer}></Modal>
-      <UpdateModal></UpdateModal>
       <DeleteModal onDeleteConfirmed={onDeleteConfirmed}></DeleteModal>
     </div>
   );

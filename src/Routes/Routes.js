@@ -9,6 +9,7 @@ import AddCustomerData from "../Pages/Outlates/AddCustomerData";
 import AllData from "../Pages/Outlates/AllData";
 import MyData from "../Pages/Outlates/MyData";
 import Register from "../Pages/Outlates/Register";
+import UpdateCustomerData from "../Pages/Outlates/UpdateCustomerData";
 
 const routes = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const routes = createBrowserRouter([
                 <Register></Register>
               </RequireAdmin>
             ),
+          },
+          {
+            path: "/dashboard/update-customer/:cid",
+            element: <UpdateCustomerData></UpdateCustomerData>,
           },
         ],
       },

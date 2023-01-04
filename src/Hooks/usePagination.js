@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const usePagination = () => {
-  const dataPerPage = 10;
+  const dataPerPage = 6;
   const [values, setValues] = useState({
     startValue: 0,
     endValue: dataPerPage,

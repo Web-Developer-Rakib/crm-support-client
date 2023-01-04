@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useUser from "../../Hooks/useUser";
 
 const AddCustomerData = () => {
   const { user } = useUser();
+  const navigate = useNavigate();
   const [customerName, setCustomerName] = useState("");
   const [contactNumber, setContactNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -80,6 +82,7 @@ const AddCustomerData = () => {
           setStatus("");
           setContactNumber("");
           setEmail("");
+          navigate(0);
           toast.success("Customer added successfully.");
         })
         .catch(() => {
@@ -91,13 +94,13 @@ const AddCustomerData = () => {
     <div className="mt-10">
       <h2 className="my-5 text-2xl text-center">ADD CUSTOMER DATA</h2>
       <form>
-        <div className="flex flex-wrap lg:w-[500px] justify-between">
+        <div className="flex flex-wrap lg:w-[700px] justify-between">
           <div>
             <h4 className="text-lg font-semibold">Customer name</h4>
             <input
               type="text"
               placeholder="Name"
-              className="input input-bordered w-full max-w-xs mb-3"
+              className="input input-bordered max-w-xs mb-3 w-80"
               onChange={(e) => setCustomerName(e.target.value)}
             />
             <h4 className="text-lg font-semibold">Contact number</h4>
@@ -153,7 +156,7 @@ const AddCustomerData = () => {
 
             <h4 className="text-lg font-semibold">Comment</h4>
             <textarea
-              className="textarea textarea-bordered mb-5"
+              className="textarea textarea-bordered mb-5 w-80"
               placeholder="Type comment here"
               onChange={(e) => setComment(e.target.value)}
             ></textarea>

@@ -12,7 +12,7 @@ const DeleteModal = ({ onDeleteConfirmed }) => {
             <label
               for="delete-modal"
               class="btn btn-secondary"
-              onMouseUp={onDeleteConfirmed}
+              onClick={onDeleteConfirmed}
             >
               Delete
             </label>

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaEye, FaPencilAlt, FaTrashAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const DataRow = ({ customer, handleView, onDeleteClicked }) => {
   const {
@@ -12,6 +13,7 @@ const DataRow = ({ customer, handleView, onDeleteClicked }) => {
     personIncharge,
     comment,
   } = customer;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -34,7 +36,7 @@ const DataRow = ({ customer, handleView, onDeleteClicked }) => {
         </td>
         <td>{leadDate}</td>
         <td>{personIncharge.slice(0, 7)}...</td>
-        <td>{comment.slice(0, 10)}...</td>
+        <td>{comment.slice(0, 6)}...</td>
         <td>
           <label
             htmlFor="view-modal"
@@ -44,9 +46,9 @@ const DataRow = ({ customer, handleView, onDeleteClicked }) => {
             <FaEye></FaEye>
           </label>
           <label
-            htmlFor="update-modal"
-            className="btn btn-accent  btn-sm"
-            onClick={() => handleView(_id)}
+            // htmlFor="update-modal"
+            className="btn btn-accent btn-sm"
+            onClick={() => navigate(`/dashboard/update-customer/${_id}`)}
           >
             <FaPencilAlt></FaPencilAlt>
           </label>

@@ -13,7 +13,6 @@ const useSingleCustomer = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setSingleCustomer(data);
       });
   };

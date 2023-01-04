@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useAllCustomers = () => {
+const useAllCustomers = (hitEffect) => {
   const [customers, setCustomers] = useState([]);
   const [filterStatus, setFilterStatus] = useState("All");
 
@@ -24,9 +24,9 @@ const useAllCustomers = () => {
           setCustomers(data);
         }
       });
-  }, [filterStatus]);
+  }, [filterStatus, hitEffect]);
 
-  return { customers, setFilterStatus, setCustomers };
+  return { customers, setFilterStatus, setCustomers, filterStatus };
 };
 
 export default useAllCustomers;
