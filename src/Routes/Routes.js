@@ -5,6 +5,7 @@ import RequireAuth from "../Hooks/RequireAuth";
 import Main from "../Layouts/Main";
 import Dashboard from "../Pages/Dashboard";
 import Login from "../Pages/Login";
+import NotFound from "../Pages/NotFound";
 import AddCustomerData from "../Pages/Outlates/AddCustomerData";
 import AllData from "../Pages/Outlates/AllData";
 import MyData from "../Pages/Outlates/MyData";
@@ -23,6 +24,10 @@ const routes = createBrowserRouter([
             <Login></Login>
           </ProtectLogin>
         ),
+      },
+      {
+        path: "*",
+        element: <NotFound></NotFound>,
       },
       {
         path: "/dashboard",
@@ -49,7 +54,7 @@ const routes = createBrowserRouter([
             element: <AddCustomerData></AddCustomerData>,
           },
           {
-            path: "/dashboard/Add-employee",
+            path: "/dashboard/add-employee",
             element: (
               <RequireAdmin>
                 <Register></Register>
@@ -59,6 +64,10 @@ const routes = createBrowserRouter([
           {
             path: "/dashboard/update-customer/:cid",
             element: <UpdateCustomerData></UpdateCustomerData>,
+          },
+          {
+            path: "*",
+            element: <NotFound></NotFound>,
           },
         ],
       },

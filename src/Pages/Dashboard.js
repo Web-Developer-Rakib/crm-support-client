@@ -28,7 +28,7 @@ const Dashboard = () => {
           </li>
           {user.userType === "admin" && (
             <li>
-              <Link to="/dashboard/Add-employee">Add new employee</Link>
+              <Link to="/dashboard/add-employee">Add new employee</Link>
             </li>
           )}
         </ul>

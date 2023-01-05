@@ -19,6 +19,7 @@ const MyData = () => {
     (customer) => customer.inchargeUsername === user.userName
   );
   const dataLength = myData.length;
+  const totalNumberOfPages = Math.ceil(dataLength / dataPerPage);
   return (
     <div>
       <div className="flex justify-between align-middle">
@@ -61,24 +62,34 @@ const MyData = () => {
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
-            {myData
-              .slice(values.startValue, values.endValue)
-              .map((customer) => (
-                <DataRow
-                  customer={customer}
-                  handleView={handleView}
-                  onDeleteClicked={onDeleteClicked}
-                ></DataRow>
-              ))}
-          </tbody>
+
+          {myData.length > 0 && (
+            <tbody>
+              {myData
+                .slice(values.startValue, values.endValue)
+                .map((customer) => (
+                  <DataRow
+                    customer={customer}
+                    handleView={handleView}
+                    onDeleteClicked={onDeleteClicked}
+                  ></DataRow>
+                ))}
+            </tbody>
+          )}
         </table>
+        {customers.length === 0 && (
+          <p className="text-center text-lg font-bold mt-5">
+            No data available. Please insert.
+          </p>
+        )}
       </div>
-      <Pagination
-        dataPerPage={dataPerPage}
-        getValues={getValues}
-        dataLength={dataLength}
-      ></Pagination>
+      {totalNumberOfPages > 1 && (
+        <Pagination
+          dataPerPage={dataPerPage}
+          getValues={getValues}
+          dataLength={dataLength}
+        ></Pagination>
+      )}
       <Modal singleCustomer={singleCustomer}></Modal>
       <DeleteModal onDeleteConfirmed={onDeleteConfirmed}></DeleteModal>
     </div>

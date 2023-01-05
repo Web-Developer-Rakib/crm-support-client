@@ -16,6 +16,7 @@ const AllData = () => {
   const { onDeleteClicked, onDeleteConfirmed } = useDeleteCustomer();
   const { singleCustomer, handleView } = useSingleCustomer();
   const dataLength = customers.length;
+  const totalNumberOfPages = Math.ceil(dataLength / dataPerPage);
   const csvHeader = [
     { label: "id", key: "_id" },
     { label: "Customer Name", key: "customerName" },
@@ -57,7 +58,7 @@ const AllData = () => {
           <CSVLink
             data={customers}
             headers={csvHeader}
-            filename={"customersData.csv"}
+            filename={"customers data.csv"}
           >
             <button className="btn btn-outline">
               <FaArrowDown></FaArrowDown>
@@ -80,24 +81,33 @@ const AllData = () => {
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
-            {customers
-              .slice(values.startValue, values.endValue)
-              .map((customer) => (
-                <DataRow
-                  customer={customer}
-                  handleView={handleView}
-                  onDeleteClicked={onDeleteClicked}
-                ></DataRow>
-              ))}
-          </tbody>
+          {customers.length > 0 && (
+            <tbody>
+              {customers
+                .slice(values.startValue, values.endValue)
+                .map((customer) => (
+                  <DataRow
+                    customer={customer}
+                    handleView={handleView}
+                    onDeleteClicked={onDeleteClicked}
+                  ></DataRow>
+                ))}
+            </tbody>
+          )}
         </table>
+        {customers.length === 0 && (
+          <p className="text-center text-lg font-bold mt-5">
+            No data available. Please insert.
+          </p>
+        )}
       </div>
-      <Pagination
-        dataPerPage={dataPerPage}
-        getValues={getValues}
-        dataLength={dataLength}
-      ></Pagination>
+      {totalNumberOfPages > 1 && (
+        <Pagination
+          dataPerPage={dataPerPage}
+          getValues={getValues}
+          dataLength={dataLength}
+        ></Pagination>
+      )}
       <ViewModal singleCustomer={singleCustomer}></ViewModal>
       <DeleteModal onDeleteConfirmed={onDeleteConfirmed}></DeleteModal>
     </div>
