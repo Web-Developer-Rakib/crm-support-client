@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import useUser from "../Hooks/useUser";
 
 const Dashboard = () => {
@@ -13,22 +13,24 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 text-base-content bg-zinc-300">
+        <ul className="menu p-4 w-56 text-base-content bg-black text-white">
           {/* <!-- Sidebar content here --> */}
           {user.userType === "admin" && (
             <li>
-              <Link to="/dashboard/all-data">All Data</Link>
+              <NavLink to="/dashboard/all-data">All Data</NavLink>
             </li>
           )}
           <li>
-            <Link to="/dashboard/added-by-me">Added by me</Link>
+            <NavLink to="/dashboard/added-by-me">Added by me</NavLink>
           </li>
           <li>
-            <Link to="/dashboard/add-customer-data">Add customer data</Link>
+            <NavLink to="/dashboard/add-customer-data">
+              Add customer data
+            </NavLink>
           </li>
           {user.userType === "admin" && (
             <li>
-              <Link to="/dashboard/add-employee">Add new employee</Link>
+              <NavLink to="/dashboard/add-employee">Add new employee</NavLink>
             </li>
           )}
         </ul>

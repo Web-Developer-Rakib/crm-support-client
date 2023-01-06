@@ -28,7 +28,7 @@ const DataRow = ({ customer, handleView, onDeleteClicked }) => {
                 ? "bg-success"
                 : status === "Close"
                 ? "bg-error"
-                : "bg-warning"
+                : "bg-amber-300"
             } p-2 rounded-lg text-center`}
           >
             {status}

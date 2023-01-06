@@ -1,6 +1,6 @@
 import React from "react";
 import { FaUser } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useUser from "../Hooks/useUser";
 
@@ -16,7 +16,7 @@ const Navbar = () => {
   const navLinks = (
     <>
       {user ? (
-        <button className="btn btn-secondary" onClick={logout}>
+        <button className="btn btn-secondary lg:mr-3" onClick={logout}>
           Logout
         </button>
       ) : (
@@ -25,7 +25,7 @@ const Navbar = () => {
         </li>
       )}
       <li>
-        <Link to="/dashboard/all-data">Dashboard</Link>
+        <NavLink to="/dashboard/all-data">Dashboard</NavLink>
       </li>
     </>
   );

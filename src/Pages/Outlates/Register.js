@@ -74,14 +74,14 @@ const Register = () => {
         />{" "}
         <br />
         <input
-          type="password"
+          type="text"
           placeholder="Password"
           className="input input-bordered w-full max-w-xs"
           onChange={(e) => setPassword(e.target.value)}
         />{" "}
         <br />
         <input
-          type="password"
+          type="text"
           placeholder="Confirm password"
           className="input input-bordered w-full max-w-xs my-5"
           onChange={(e) => setConfirmPassword(e.target.value)}
