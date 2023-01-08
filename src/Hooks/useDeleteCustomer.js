@@ -17,9 +17,9 @@ const useDeleteCustomer = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount === 1) {
-          navigate(0);
           toast.success("Customer deleted successfuly.");
           setCustomers(customers.filter((customer) => customer?._id !== id));
+          navigate(0);
         } else {
           toast.error("Something went wrong.");
         }

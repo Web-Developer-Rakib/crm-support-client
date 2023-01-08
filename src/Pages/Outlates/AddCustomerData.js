@@ -4,8 +4,8 @@ import { toast } from "react-toastify";
 import useUser from "../../Hooks/useUser";
 
 const AddCustomerData = () => {
-  const { user } = useUser();
   const navigate = useNavigate();
+  const { user } = useUser();
   const [customerName, setCustomerName] = useState("");
   const [contactNumber, setContactNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -82,8 +82,8 @@ const AddCustomerData = () => {
           setStatus("");
           setContactNumber("");
           setEmail("");
-          navigate(0);
           toast.success("Customer added successfully.");
+          navigate(0);
         })
         .catch(() => {
           toast.error("Something went wrong.");
