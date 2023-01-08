@@ -55,7 +55,7 @@ const Navbar = () => {
             </svg>
           </label>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Joo Skart</a>
+        <a className="btn btn-ghost normal-case text-xl">Jooskart</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>

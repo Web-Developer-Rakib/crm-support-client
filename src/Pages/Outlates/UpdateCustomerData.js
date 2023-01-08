@@ -77,7 +77,7 @@ const UpdateCustomerData = () => {
     })
       .then((response) => response.json())
       .then(() => {
-        // toast.success("Custmer updated successfully.");
+        toast.success("Custmer updated successfully.");
       })
       .catch(() => {
         toast.error("Something went wrong.");
