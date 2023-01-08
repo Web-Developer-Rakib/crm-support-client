@@ -82,20 +82,6 @@ const UpdateCustomerData = () => {
       .catch(() => {
         toast.error("Something went wrong.");
       });
-    fetch(`http://localhost:5000/update-customer`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedCustomer),
-    })
-      .then((response) => response.json())
-      .then(() => {
-        toast.success("Custmer updated successfully.");
-      })
-      .catch(() => {
-        toast.error("Something went wrong.");
-      });
   };
   return (
     <div className="mt-10">
