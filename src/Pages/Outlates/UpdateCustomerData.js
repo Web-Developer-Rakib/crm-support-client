@@ -82,6 +82,13 @@ const UpdateCustomerData = () => {
               defaultValue={matchedCustomer?.email}
               className="input input-bordered w-full max-w-xs mb-3"
             />
+            <h4 className="text-lg font-semibold">Comment</h4>
+            <textarea
+              className="textarea textarea-bordered mb-5 w-80"
+              name="comment"
+              defaultValue={matchedCustomer?.comment}
+              placeholder="Type comment here"
+            ></textarea>
           </div>
           <div>
             <h4 className="text-lg font-semibold">Status</h4>
@@ -132,18 +139,8 @@ const UpdateCustomerData = () => {
               className="input input-bordered w-full max-w-xs mb-3"
               defaultValue={matchedCustomer?.cbDate}
             />
-            <h4 className="text-lg font-semibold">Comment</h4>
-            <textarea
-              className="textarea textarea-bordered mb-5 w-80"
-              name="comment"
-              defaultValue={matchedCustomer?.comment}
-              placeholder="Type comment here"
-            ></textarea>
-            <br />
+            <button className="btn btn-primary mt-10 w-full">Update</button>
           </div>
-        </div>
-        <div className="flex justify-center">
-          <button className="btn btn-primary mb-5">Update</button>
         </div>
       </form>
     </div>

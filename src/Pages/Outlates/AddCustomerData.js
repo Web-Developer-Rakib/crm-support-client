@@ -119,6 +119,12 @@ const AddCustomerData = () => {
               className="input input-bordered w-full max-w-xs mb-3"
               onChange={(e) => setEmail(e.target.value)}
             />
+            <h4 className="text-lg font-semibold">Comment</h4>
+            <textarea
+              className="textarea textarea-bordered mb-5 w-80"
+              placeholder="Type comment here"
+              onChange={(e) => setComment(e.target.value)}
+            ></textarea>
           </div>
           <div>
             <h4 className="text-lg font-semibold">Status</h4>
@@ -161,23 +167,13 @@ const AddCustomerData = () => {
               className="input input-bordered w-full max-w-xs mb-3"
               onChange={(e) => setCbDate(e.target.value)}
             />
-
-            <h4 className="text-lg font-semibold">Comment</h4>
-            <textarea
-              className="textarea textarea-bordered mb-5 w-80"
-              placeholder="Type comment here"
-              onChange={(e) => setComment(e.target.value)}
-            ></textarea>
-            <br />
+            <button
+              className="btn btn-primary mt-10 w-full"
+              onClick={handleAddCustomerData}
+            >
+              Add data
+            </button>
           </div>
-        </div>
-        <div className="flex justify-center">
-          <button
-            className="btn btn-primary mb-5"
-            onClick={handleAddCustomerData}
-          >
-            Add data
-          </button>
         </div>
       </form>
     </div>
