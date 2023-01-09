@@ -3,6 +3,7 @@ import { FaUser } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useUser from "../Hooks/useUser";
+import Logo from "../img/logo.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -55,7 +56,10 @@ const Navbar = () => {
             </svg>
           </label>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Jooskart</a>
+        <img src={Logo} alt="Promotix logo" width={100} />
+        <span className="text-lg font-semibold">
+          Promotix lead management software
+        </span>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>

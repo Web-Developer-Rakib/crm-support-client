@@ -33,6 +33,14 @@ const ViewModal = ({ singleCustomer }) => {
             <span>{singleCustomer.personIncharge}</span>
           </div>
           <div>
+            <span className="text-lg font-bold">Lead date: </span>
+            <span>{singleCustomer.leadDate}</span>
+          </div>
+          <div>
+            <span className="text-lg font-bold">Call back date: </span>
+            <span>{singleCustomer.cbDate}</span>
+          </div>
+          <div>
             <span className="text-lg font-bold">Comment: </span>
             <span>{singleCustomer.comment}</span>
           </div>

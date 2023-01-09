@@ -6,49 +6,16 @@ import useUser from "../../Hooks/useUser";
 
 const UpdateCustomerData = () => {
   const [status, setStatus] = useState("");
-  // const [date, setDate] = useState();
 
   const { customers } = useAllCustomers();
   const { cid } = useParams();
   const { user } = useUser();
 
   const matchedCustomer = customers.find((customer) => customer._id === cid);
-  // const dateSplited = date.split("-");
-
-  // const year = dateSplited[0];
-  // let month = dateSplited[1];
-  // if (month === "01") {
-  //   month = "Jan";
-  // } else if (month === "02") {
-  //   month = "Feb";
-  // } else if (month === "03") {
-  //   month = "Mar";
-  // } else if (month === "04") {
-  //   month = "Apr";
-  // } else if (month === "05") {
-  //   month = "May";
-  // } else if (month === "06") {
-  //   month = "Jun";
-  // } else if (month === "07") {
-  //   month = "Jul";
-  // } else if (month === "08") {
-  //   month = "Aug";
-  // } else if (month === "09") {
-  //   month = "Sep";
-  // } else if (month === "10") {
-  //   month = "Oct";
-  // } else if (month === "11") {
-  //   month = "Nov";
-  // } else {
-  //   month = "Dec";
-  // }
-  // const day = dateSplited[2];
-  // let formatedDate = day + " " + month + " " + year;
   const personIncharge = user.name;
   const inchargeUsername = user.userName;
 
   const handleUpdateCustomerData = (e) => {
-    console.log("Submited");
     e.preventDefault();
     const cid = matchedCustomer._id;
     const customerName = e.target.name.value;
@@ -56,6 +23,7 @@ const UpdateCustomerData = () => {
     const email = e.target.email.value;
     const status = e.target.status.value;
     const leadDate = e.target.date.value;
+    const cbDate = e.target.cbdate.value;
     const comment = e.target.comment.value;
     const updatedCustomer = {
       cid,
@@ -64,6 +32,7 @@ const UpdateCustomerData = () => {
       email,
       status,
       leadDate,
+      cbDate,
       personIncharge,
       inchargeUsername,
       comment,
@@ -96,7 +65,6 @@ const UpdateCustomerData = () => {
               placeholder="Name"
               className="input input-bordered max-w-xs mb-3 w-80"
               defaultValue={matchedCustomer?.customerName}
-              // onChange={(e) => setCustomerName(e.target.value)}
             />
             <h4 className="text-lg font-semibold">Contact number</h4>
             <input
@@ -105,7 +73,6 @@ const UpdateCustomerData = () => {
               placeholder="Contact number"
               defaultValue={matchedCustomer?.contactNumber}
               className="input input-bordered w-full max-w-xs mb-3"
-              // onChange={(e) => setContactNumber(e.target.value)}
             />
             <h4 className="text-lg font-semibold">Email</h4>
             <input
@@ -114,7 +81,6 @@ const UpdateCustomerData = () => {
               name="email"
               defaultValue={matchedCustomer?.email}
               className="input input-bordered w-full max-w-xs mb-3"
-              // onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -152,33 +118,26 @@ const UpdateCustomerData = () => {
                 onClick={() => setStatus("Pending")}
               />
             </span>
-            {/* <input
-              type="date"
-              className="input input-bordered w-full max-w-xs mb-3"
-              defaultValue={matchedCustomer?.status}
-            /> */}
             <h4 className="text-lg mt-3 font-semibold">Lead date</h4>
-            {/* <input
-              type="date"
-              className="input input-bordered w-full max-w-xs mb-3"
-              onChange={(e) => setDate(e.target.value)}
-            /> */}
             <input
               type="text"
               name="date"
               className="input input-bordered w-full max-w-xs mb-3"
-              // onChange={(e) => setDate(e.target.value)}
-              // value={formatedDate}
               defaultValue={matchedCustomer?.leadDate}
             />
-
+            <h4 className="text-lg mt-3 font-semibold">Call back date</h4>
+            <input
+              type="text"
+              name="cbdate"
+              className="input input-bordered w-full max-w-xs mb-3"
+              defaultValue={matchedCustomer?.cbDate}
+            />
             <h4 className="text-lg font-semibold">Comment</h4>
             <textarea
               className="textarea textarea-bordered mb-5 w-80"
               name="comment"
               defaultValue={matchedCustomer?.comment}
               placeholder="Type comment here"
-              // onChange={(e) => setComment(e.target.value)}
             ></textarea>
             <br />
           </div>

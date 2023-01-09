@@ -11,6 +11,7 @@ const AddCustomerData = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
   const [date, setDate] = useState("");
+  const [cbDate, setCbDate] = useState("");
   const [comment, setComment] = useState("");
   const personIncharge = user.name;
   const inchargeUsername = user.userName;
@@ -52,6 +53,7 @@ const AddCustomerData = () => {
     email,
     status,
     leadDate,
+    cbDate,
     personIncharge,
     inchargeUsername,
     comment,
@@ -152,6 +154,12 @@ const AddCustomerData = () => {
               type="date"
               className="input input-bordered w-full max-w-xs mb-3"
               onChange={(e) => setDate(e.target.value)}
+            />
+            <h4 className="text-lg mt-3 font-semibold">Call back date</h4>
+            <input
+              type="date"
+              className="input input-bordered w-full max-w-xs mb-3"
+              onChange={(e) => setCbDate(e.target.value)}
             />
 
             <h4 className="text-lg font-semibold">Comment</h4>
